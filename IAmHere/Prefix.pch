@@ -1,0 +1,23 @@
+//
+//  Prefix.pch
+//  IAmHere
+//
+//  Created by Mukesh Soni on 21/12/14.
+//  Copyright (c) 2014 Self. All rights reserved.
+//
+
+#define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
+#   define ELog(err) {if(err) DLog(@"%@", err)}
+#else
+#   define DLog(...)
+#   define ELog(err)
+#endif
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "Common.h"
+#import "LocationManager.h"
+#import "Utility.h"

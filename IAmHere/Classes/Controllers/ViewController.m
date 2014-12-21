@@ -10,18 +10,36 @@
 
 @interface ViewController ()
 
+@property(nonatomic, weak) IBOutlet UITextField *txtUserName;
+@property(nonatomic, weak) IBOutlet UILabel *lblLocation;
+@property(nonatomic, weak) IBOutlet UILabel *lblLastUpdatedInfo;
+@property(nonatomic, weak) IBOutlet UIButton *btnSubmit;
+
+-(IBAction)submitUserLocationButtonAction:(id)sender;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocation:) name:kGotNewLocationNotification object:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(IBAction)submitUserLocationButtonAction:(id)sender{
+    
+}
+
+#pragma mark LocationManagerNotification
+
+- (void)didUpdateLocation:(NSNotification *)notification {
+    NSDictionary *dictLcation = [notification userInfo];
+    NSString *location = [dictLcation objectForKey:kLocation];
+    [self.lblLocation setText:location];
 }
 
 @end
