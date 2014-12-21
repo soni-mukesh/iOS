@@ -10,7 +10,7 @@
 
 @optional
 
-- (void) webServiceRequestSucceed:(id)inResponse forRequestClass:(Class)inRequestClass;
+- (void) webServiceRequestSucceed:(NSInteger)inResponse forRequestClass:(Class)inRequestClass;
 - (void) webServiceRequestFailed:(NSError*)inError forRequestClass:(Class)inRequestClass;
 
 @end

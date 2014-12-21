@@ -21,14 +21,19 @@ static NSString* const kPassword        = @"milton34";
     return self;
 }
 
-- (void) processOperationOnCompletion:(void(^)())completionHandler errorHandler:(OperationErrorHandler)errorHandler {
+- (void) processOperationOnCompletion:(void(^)(NSInteger))completionHandler errorHandler:(OperationErrorHandler)errorHandler {
     
     [self addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         
-        DLog(@"response headers: %@", completedOperation.readonlyResponse.allHeaderFields);
-        DLog(@"response : %s", [completedOperation.responseData bytes]);
-        
-        completionHandler();
+        if([completedOperation.url rangeOfString:kApplicationEndPointURL].length) {
+            if (completedOperation.HTTPStatusCode == kHTTPStatus201) {
+                completionHandler(OperationStatusSuccess);
+            }else{
+                completionHandler(OperationStatusFailure);
+            }
+        }else{
+            completionHandler(OperationStatusInvalid);
+        }
     }
     errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
         errorHandler(error);

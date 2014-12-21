@@ -10,6 +10,12 @@
 #import "OperationDelegate.h"
 #import "AppDelegate.h"
 
+typedef enum{
+    OperationStatusFailure = 0,
+    OperationStatusSuccess,
+    OperationStatusInvalid
+}OperationStatus;
+
 typedef void (^OperationErrorHandler)(NSError* error);
 
 @interface BaseOperation : MKNetworkOperation
@@ -18,6 +24,6 @@ typedef void (^OperationErrorHandler)(NSError* error);
 
 -(id)initOperationForUrl: (NSString *) inUrl withParams:(NSDictionary *)inParams havingHTTPMethod:(NSString *) inHTTPMethod checkTimeout:(BOOL) isTimeoutValid;
 
--(void)processOperationOnCompletion:(void(^)())completionBlock errorHandler:(OperationErrorHandler)errorHandler;
+-(void)processOperationOnCompletion:(void(^)(NSInteger))completionHandler errorHandler:(OperationErrorHandler)errorHandler;
 
 @end

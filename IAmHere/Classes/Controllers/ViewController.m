@@ -44,11 +44,28 @@
 
 #pragma mark WebServiceDelegate
 
-- (void) webServiceRequestSucceed:(id)inResponse forRequestClass:(Class)inRequestClass{
-    DLog(@"Response : %@", (NSDictionaryOfVariableBindings(inResponse)));
+- (void) webServiceRequestSucceed:(NSInteger)inResponse forRequestClass:(Class)inRequestClass{
+    if (inRequestClass == [SubmitLocationOperation class]) {
+        switch (inResponse) {
+            case OperationStatusSuccess:
+                [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationSuccessMsg", nil) withDelegate:nil];
+                break;
+            case OperationStatusFailure:
+                [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationErrorMsg", nil) withDelegate:nil];
+                break;
+            case OperationStatusInvalid:
+                [Utility showAlertWithMessage:NSLocalizedString(@"UnknownOperation", nil) withDelegate:nil];
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 - (void) webServiceRequestFailed:(NSError*)inError forRequestClass:(Class)inRequestClass{
-    DLog(@"Error : %@", inError.description);
+    if (inRequestClass == [SubmitLocationOperation class]) {
+        [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationErrorMsg", nil) withDelegate:nil];
+    }
 }
 
 @end

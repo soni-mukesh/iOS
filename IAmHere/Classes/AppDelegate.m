@@ -10,7 +10,6 @@
 
 static NSString* const kAcceptEncoding         =  @"Accept-Encoding";
 static NSString* const kGzip                   =  @"gzip";
-static NSString* const kLocationServiceUnavaliableMsg                   =  @"Location Service is not enable, Please enable it from Settings.";
 
 @implementation AppDelegate
 
@@ -21,7 +20,7 @@ static NSString* const kLocationServiceUnavaliableMsg                   =  @"Loc
 
     if(![CLLocationManager locationServicesEnabled])
     {
-        [Utility showAlertWithMessage:kLocationServiceUnavaliableMsg withDelegate:nil];
+        [Utility showAlertWithMessage:NSLocalizedString(@"LocationDisabledErrorMsg", nil) withDelegate:nil];
     }
     
     [LocationManager startUpdating];

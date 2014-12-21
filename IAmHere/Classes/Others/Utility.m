@@ -8,7 +8,7 @@
 
 #import "Utility.h"
 
-static NSString* const kAlertTitle = @"IAmHere Error";
+static NSString* const kAlertTitle = @"IAmHere";
 
 @implementation Utility
 

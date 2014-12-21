@@ -32,6 +32,7 @@
 		8B294BFE1A46FC1100DD67A1 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B294BF01A46FC1100DD67A1 /* MKNetworkEngine.m */; };
 		8B294BFF1A46FC1100DD67A1 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B294BF31A46FC1100DD67A1 /* MKNetworkOperation.m */; };
 		8B294C001A46FC1100DD67A1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B294BF61A46FC1100DD67A1 /* Reachability.m */; };
+		8B294C021A4726FB00DD67A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B294C011A4726FB00DD67A1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		8B294BF31A46FC1100DD67A1 /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		8B294BF51A46FC1100DD67A1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8B294BF61A46FC1100DD67A1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8B294C011A4726FB00DD67A1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				8B294B8F1A46D79800DD67A1 /* LaunchScreen.xib */,
 				8B294B911A46D79800DD67A1 /* Main.storyboard */,
 				8B294B931A46D79800DD67A1 /* Images.xcassets */,
+				8B294C011A4726FB00DD67A1 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B294B9C1A46D79800DD67A1 /* Images.xcassets in Resources */,
+				8B294C021A4726FB00DD67A1 /* Localizable.strings in Resources */,
 				8B294B981A46D79800DD67A1 /* LaunchScreen.xib in Resources */,
 				8B294B9A1A46D79800DD67A1 /* Main.storyboard in Resources */,
 			);

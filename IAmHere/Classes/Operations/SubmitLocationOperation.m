@@ -20,24 +20,19 @@
 
 +(void)submitLocation:(CLLocation*)myLocation forUser:(NSString*)user withDelegate:(id<OperationDelegate>)inDelegate{
     
-    NSString *requestUrl = @"http://gentle-tor-1851.herokuapp.com/events";
-    DLog(@"RequestUrl :: %@",requestUrl);
+    SubmitLocationOperation*   submitLocationOperation = [[SubmitLocationOperation alloc] initOperationForUrl:kApplicationEndPointURL withParams:nil havingHTTPMethod:kPOST checkTimeout:NO];
     
-    SubmitLocationOperation*   submitLocationOperation = [[SubmitLocationOperation alloc] initOperationForUrl:requestUrl withParams:nil havingHTTPMethod:kPOST checkTimeout:NO];
-    
-    
-    NSString *data = [NSString stringWithFormat:@"Data=%@ is now at %f/%f", user, myLocation.coordinate.latitude, myLocation.coordinate.longitude];
+    NSString *data = [NSString stringWithFormat:@"{\"Data\":\"%@ is now at %f/%f\"}", user, myLocation.coordinate.latitude, myLocation.coordinate.longitude];
     
     [submitLocationOperation setCustomPostDataEncodingHandler:^NSString *(NSDictionary *postDataDict) { return data; } forType:kContentTypeJson];
     
     [submitLocationOperation setDelegate:inDelegate];
-    [submitLocationOperation processOperationOnCompletion:^()
+    [submitLocationOperation processOperationOnCompletion:^(NSInteger status)
      {
-         DLog();
-         [inDelegate webServiceRequestSucceed:@"Done" forRequestClass:self];
+         [inDelegate webServiceRequestSucceed:status forRequestClass:[self class]];
          
      } errorHandler:^(NSError *error) {
-         DLog(@"%@", error.userInfo);
+         [inDelegate webServiceRequestFailed:error forRequestClass:[self class]];
      }];
 }
 
