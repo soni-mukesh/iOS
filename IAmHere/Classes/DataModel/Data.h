@@ -11,7 +11,7 @@
 @interface Data : NSObject
 
 +(Data*)sharedInstance;
--(void) updateLastSubmittedDate:(NSDate *)lastSubmittedDate;
+-(void) updateLastSubmittedDate:(NSString *)lastSubmittedDate;
 -(NSString*) getRelativeTime;
 
 @end

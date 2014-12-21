@@ -29,10 +29,7 @@ static NSString* const kPassword        = @"milton34";
             if (completedOperation.HTTPStatusCode == kHTTPStatus201) {
                 NSString *lastSubmittedDate = [completedOperation.readonlyResponse.allHeaderFields objectForKey:@"Date"];
                 if (lastSubmittedDate) {
-                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                    [dateFormatter setDateFormat:@"EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz"];
-                    NSDate *date = [dateFormatter dateFromString:lastSubmittedDate];
-                    [[Data sharedInstance]  updateLastSubmittedDate:date];
+                    [[Data sharedInstance]  updateLastSubmittedDate:lastSubmittedDate];
                 }
                 completionHandler(OperationStatusSuccess);
             }else{

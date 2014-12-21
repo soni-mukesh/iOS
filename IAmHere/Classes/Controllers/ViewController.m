@@ -24,8 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([Utility getUsernameFromPermanentStore]) {
-        [self.txtUserName setText:[Utility getUsernameFromPermanentStore]];
+    if ([Utility getValueFromPermanentStoreForKey:kUsernameKey]) {
+        [self.txtUserName setText:[Utility getValueFromPermanentStoreForKey:kUsernameKey]];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocation:) name:kGotNewLocationNotification object:nil];
 }
@@ -55,7 +55,7 @@
 #pragma mark TextFieldDelegate
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    [Utility saveToPermanentStore:textField.text];
+    [Utility saveToPermanentStoreValue:textField.text forKey:kUsernameKey];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

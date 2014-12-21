@@ -9,10 +9,6 @@
 #import "Utility.h"
 #import "AppDelegate.h"
 
-
-static NSString* const kAlertTitle = @"IAmHere";
-static NSString* const kUsernameKey = @"username";
-
 @implementation Utility
 
 +(UIAlertView*)showAlertWithMessage:(NSString*)messageKey withDelegate:(id)delegate {
@@ -36,13 +32,13 @@ static NSString* const kUsernameKey = @"username";
     return nil;
 }
 
-+(NSString*) getUsernameFromPermanentStore{
-    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:kUsernameKey];
++(NSString*) getValueFromPermanentStoreForKey:(NSString*) key{
+    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:key];
     return username;
 }
 
-+(void) saveToPermanentStore:(NSString*) username{
-    [[NSUserDefaults standardUserDefaults] setValue:username forKey:kUsernameKey];
++(void) saveToPermanentStoreValue:(NSString*) value forKey:(NSString*) key{
+    [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 @end

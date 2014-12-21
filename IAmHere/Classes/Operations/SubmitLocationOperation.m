@@ -29,7 +29,7 @@
     [submitLocationOperation setDelegate:inDelegate];
     [submitLocationOperation processOperationOnCompletion:^(NSInteger status)
      {
-         [Utility saveToPermanentStore:user];
+         [Utility saveToPermanentStoreValue:user forKey:kUsernameKey];
          [inDelegate webServiceRequestSucceed:status forRequestClass:[self class]];
          
      } errorHandler:^(NSError *error) {

@@ -24,12 +24,10 @@ static NSString* const kGzip                   =  @"gzip";
         [Utility showAlertWithMessage:NSLocalizedString(@"LocationDisabledErrorMsg", nil) withDelegate:nil];
     }
     [LocationManager startUpdating];
-    NSString *temp = [Utility getUsernameFromPermanentStore];
-    DLog(@"username = '%@'", temp);
     [self setApplicationRunningInForeground:YES];
 
-    if (![Utility getUsernameFromPermanentStore]) {
-        [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:[Utility getUsernameFromPermanentStore] withDelegate:self];
+    if (![Utility getValueFromPermanentStoreForKey:kLastSubmittedKey]) {
+        [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:[Utility getValueFromPermanentStoreForKey:kUsernameKey] withDelegate:self];
     }
     
     return YES;
@@ -40,7 +38,7 @@ static NSString* const kGzip                   =  @"gzip";
     
     [self setApplicationRunningInForeground:NO];
     
-    [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:[Utility getUsernameFromPermanentStore] withDelegate:self];
+    [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:[Utility getValueFromPermanentStoreForKey:kUsernameKey] withDelegate:self];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
