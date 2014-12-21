@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "SubmitLocationOperation.h"
 
-@interface ViewController ()
+@interface ViewController () <OperationDelegate>
 
 @property(nonatomic, weak) IBOutlet UITextField *txtUserName;
 @property(nonatomic, weak) IBOutlet UILabel *lblLocation;
@@ -31,15 +32,23 @@
 }
 
 -(IBAction)submitUserLocationButtonAction:(id)sender{
-    
+    [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:self.txtUserName.text withDelegate:self];
 }
 
 #pragma mark LocationManagerNotification
 
 - (void)didUpdateLocation:(NSNotification *)notification {
-    NSDictionary *dictLcation = [notification userInfo];
-    NSString *location = [dictLcation objectForKey:kLocation];
-    [self.lblLocation setText:location];
+    NSString *locationStr = [NSString stringWithFormat:@"%f, %f", [LocationManager sharedInstance].location.coordinate.latitude, [LocationManager sharedInstance].location.coordinate.longitude];
+    [self.lblLocation setText:locationStr];
+}
+
+#pragma mark WebServiceDelegate
+
+- (void) webServiceRequestSucceed:(id)inResponse forRequestClass:(Class)inRequestClass{
+    DLog(@"Response : %@", (NSDictionaryOfVariableBindings(inResponse)));
+}
+- (void) webServiceRequestFailed:(NSError*)inError forRequestClass:(Class)inRequestClass{
+    DLog(@"Error : %@", inError.description);
 }
 
 @end

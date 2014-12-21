@@ -51,15 +51,16 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *location = [locations lastObject];
+    self.location = [locations lastObject];
     dispatch_async(dispatch_get_main_queue(), ^{
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        NSString *locationString = [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude];
-        [notificationCenter postNotificationName:kGotNewLocationNotification object:nil userInfo:@{kLocation:locationString}];
+        [notificationCenter postNotificationName:kGotNewLocationNotification object:nil userInfo:nil];
     });
     
 }
+
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     DLog(@"Error = %@", error.description);
 }
+
 @end

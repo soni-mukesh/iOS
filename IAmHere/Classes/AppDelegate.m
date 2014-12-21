@@ -16,6 +16,9 @@ static NSString* const kLocationServiceUnavaliableMsg                   =  @"Loc
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSDictionary *headers = @{kContentType : kContentTypeJson, kAcceptEncoding : kGzip};
+    self.network = [[MKNetworkEngine alloc] initWithHostName:nil customHeaderFields:headers];
+
     if(![CLLocationManager locationServicesEnabled])
     {
         [Utility showAlertWithMessage:kLocationServiceUnavaliableMsg withDelegate:nil];

@@ -6,16 +6,12 @@
 //  Copyright (c) 2014 Self. All rights reserved.
 //
 
-/////*************** Boolean Constants ***************/////
-
-static BOOL kApplicationRequiredVerboseLog = YES;
-
-/////*************** String Constants ***************/////
+//*************** String Constants ***************//
 
 static NSString* const kGotNewLocationNotification = @"GotNewLocationNotification";
 static NSString* const kLocation = @"Location";
 
-//MARK: Operation Keys
+//*************** Operation Keys  ***************//
 static NSString* const kGET					= @"GET";
 static NSString* const kPOST				= @"POST";
 static NSString* const kContentType			= @"Content-Type";
