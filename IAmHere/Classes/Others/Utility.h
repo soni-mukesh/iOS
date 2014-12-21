@@ -10,5 +10,7 @@
 
 +(UIAlertView*)showAlertWithMessage:(NSString*)messageKey withDelegate:(id)delegate;
 +(UIAlertView*)showAlertWithMessage:(NSString*)messageKey Title:(NSString*)headerKey withDelegate:(id)delegate ;
++(NSString*) getUsernameFromPermanentStore;
++(void) saveToPermanentStore:(NSString*) username;
 
 @end

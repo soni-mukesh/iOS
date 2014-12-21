@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "SubmitLocationOperation.h"
 
-@interface ViewController () <OperationDelegate>
+@interface ViewController () <OperationDelegate, UITextFieldDelegate>
 
 @property(nonatomic, weak) IBOutlet UITextField *txtUserName;
 @property(nonatomic, weak) IBOutlet UILabel *lblLocation;
@@ -24,13 +24,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([Utility getUsernameFromPermanentStore]) {
+        [self.txtUserName setText:[Utility getUsernameFromPermanentStore]];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocation:) name:kGotNewLocationNotification object:nil];
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateRelativeTime) userInfo:nil repeats:YES];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void) updateRelativeTime{
+    self.lblLastUpdatedInfo.text = [[Data sharedInstance] getRelativeTime];
+}
 -(IBAction)submitUserLocationButtonAction:(id)sender{
     [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:self.txtUserName.text withDelegate:self];
 }
@@ -42,6 +52,17 @@
     [self.lblLocation setText:locationStr];
 }
 
+#pragma mark TextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [Utility saveToPermanentStore:textField.text];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark WebServiceDelegate
 
 - (void) webServiceRequestSucceed:(NSInteger)inResponse forRequestClass:(Class)inRequestClass{
@@ -51,10 +72,10 @@
                 [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationSuccessMsg", nil) withDelegate:nil];
                 break;
             case OperationStatusFailure:
-                [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationErrorMsg", nil) withDelegate:nil];
+                [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationErrorMsg", nil) Title:@"Error title" withDelegate:nil];
                 break;
             case OperationStatusInvalid:
-                [Utility showAlertWithMessage:NSLocalizedString(@"UnknownOperation", nil) withDelegate:nil];
+                [Utility showAlertWithMessage:NSLocalizedString(@"UnknownOperation", nil) Title:@"Error title" withDelegate:nil];
                 break;
                 
             default:
