@@ -1,11 +1,3 @@
-//
-//  Data.m
-//  IAmHere
-//
-//  Created by Mukesh Soni on 21/12/14.
-//  Copyright (c) 2014 Self. All rights reserved.
-//
-
 #import "Data.h"
 
 @interface Data ()
@@ -58,7 +50,7 @@
     NSString *relativeTimeAsString;
     
     if(timeInterval > (60*60*24)){
-        NSInteger days = floor(timeInterval/60*60*24);
+        NSInteger days = floor(timeInterval/(60*60*24));
         relativeTimeAsString = [NSString stringWithFormat:@"Last Submitted %ld Days ago", (long)days];
     }else if (timeInterval > (60*60)) {
         NSInteger hours = floor(timeInterval/(60*60));

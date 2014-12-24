@@ -1,11 +1,3 @@
-//
-//  Utility.h
-//  IAmHere
-//
-//  Created by Mukesh Soni on 21/12/14.
-//  Copyright (c) 2014 Self. All rights reserved.
-//
-
 static NSString* const kAlertTitle = @"IAmHere";
 static NSString* const kUsernameKey = @"Username";
 static NSString* const kLastSubmittedKey = @"LastSubmitted";

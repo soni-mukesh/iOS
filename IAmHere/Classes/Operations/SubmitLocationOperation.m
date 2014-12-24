@@ -1,19 +1,3 @@
-//
-//  SubmitLocationOperation.m
-//  IAmHere
-//
-//  Created by Mukesh Soni on 21/12/14.
-//  Copyright (c) 2014 Self. All rights reserved.
-//
-
-//
-//  SubmitLocationOperation.m
-//  IAmHere
-//
-//  Created by Mukesh Soni on 21/12/14.
-//  Copyright (c) 2014 Mukesh Soni. All rights reserved.
-//
-
 #import "SubmitLocationOperation.h"
 
 @implementation SubmitLocationOperation

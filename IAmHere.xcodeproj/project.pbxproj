@@ -576,12 +576,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wilfred Martis (ZKEAN6P6FE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajesh narang (6BWQGJT2LB)";
 				GCC_PREFIX_HEADER = IAmHere/Prefix.pch;
 				INFOPLIST_FILE = IAmHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4dc429a2-fec8-4ac9-9270-0cb2c3e92e27";
+				PROVISIONING_PROFILE = "7f42b6a0-e58a-4fe9-ab60-3326705dd415";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -589,12 +590,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wilfred Martis (ZKEAN6P6FE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajesh narang (6BWQGJT2LB)";
 				GCC_PREFIX_HEADER = IAmHere/Prefix.pch;
 				INFOPLIST_FILE = IAmHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4dc429a2-fec8-4ac9-9270-0cb2c3e92e27";
+				PROVISIONING_PROFILE = "7f42b6a0-e58a-4fe9-ab60-3326705dd415";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

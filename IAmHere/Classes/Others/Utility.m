@@ -1,11 +1,3 @@
-//
-//  Utility.m
-//  IAmHere
-//
-//  Created by Mukesh Soni on 21/12/14.
-//  Copyright (c) 2014 Self. All rights reserved.
-//
-
 #import "Utility.h"
 #import "AppDelegate.h"
 
@@ -41,4 +33,5 @@
     [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 @end
