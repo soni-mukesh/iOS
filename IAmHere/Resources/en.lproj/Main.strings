@@ -1,0 +1,12 @@
+
+/* Class = "IBUITextField"; text = "John Doe"; ObjectID = "JLn-oD-bcP"; */
+"JLn-oD-bcP.text" = "John Doe";
+
+/* Class = "IBUILabel"; text = "Location:"; ObjectID = "Uvs-Fy-rwC"; */
+"Uvs-Fy-rwC.text" = "Location:";
+
+/* Class = "IBUIButton"; normalTitle = "SUBMIT"; ObjectID = "tiR-93-6hY"; */
+"tiR-93-6hY.normalTitle" = "SUBMIT";
+
+/* Class = "IBUILabel"; text = "Name:"; ObjectID = "zGc-SA-DTc"; */
+"zGc-SA-DTc.text" = "Name:";

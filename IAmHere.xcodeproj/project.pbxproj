@@ -34,6 +34,7 @@
 		8B294C001A46FC1100DD67A1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B294BF61A46FC1100DD67A1 /* Reachability.m */; };
 		8B294C021A4726FB00DD67A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B294C011A4726FB00DD67A1 /* Localizable.strings */; };
 		8B294C0A1A474D1A00DD67A1 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B294C091A474D1A00DD67A1 /* Data.m */; };
+		8B9D20B51A5292D400C1D71C /* UILabel+Formatted.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D20B41A5292D400C1D71C /* UILabel+Formatted.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		8B294C011A4726FB00DD67A1 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8B294C081A474D1A00DD67A1 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		8B294C091A474D1A00DD67A1 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		8B9D20B31A5292D400C1D71C /* UILabel+Formatted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Formatted.h"; path = "IAmHere/UILabel+Formatted.h"; sourceTree = SOURCE_ROOT; };
+		8B9D20B41A5292D400C1D71C /* UILabel+Formatted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Formatted.m"; path = "IAmHere/UILabel+Formatted.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 		8B294B851A46D79800DD67A1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				8B9D20B31A5292D400C1D71C /* UILabel+Formatted.h */,
+				8B9D20B41A5292D400C1D71C /* UILabel+Formatted.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				8B294BF81A46FC1100DD67A1 /* NSData+MKBase64.m in Sources */,
 				8B294BF91A46FC1100DD67A1 /* NSDate+RFC1123.m in Sources */,
 				8B294BDD1A46EFAC00DD67A1 /* SubmitLocationOperation.m in Sources */,
+				8B9D20B51A5292D400C1D71C /* UILabel+Formatted.m in Sources */,
 				8B294BCF1A46E31600DD67A1 /* Utility.m in Sources */,
 				8B294BFB1A46FC1100DD67A1 /* NSString+MKNetworkKitAdditions.m in Sources */,
 				8B294B941A46D79800DD67A1 /* AppDelegate.m in Sources */,
@@ -576,12 +582,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rajesh narang (6BWQGJT2LB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wilfred Martis (ZKEAN6P6FE)";
 				GCC_PREFIX_HEADER = IAmHere/Prefix.pch;
 				INFOPLIST_FILE = IAmHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7f42b6a0-e58a-4fe9-ab60-3326705dd415";
+				PROVISIONING_PROFILE = "4dc429a2-fec8-4ac9-9270-0cb2c3e92e27";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -590,12 +596,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rajesh narang (6BWQGJT2LB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wilfred Martis (ZKEAN6P6FE)";
 				GCC_PREFIX_HEADER = IAmHere/Prefix.pch;
 				INFOPLIST_FILE = IAmHere/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7f42b6a0-e58a-4fe9-ab60-3326705dd415";
+				PROVISIONING_PROFILE = "4dc429a2-fec8-4ac9-9270-0cb2c3e92e27";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

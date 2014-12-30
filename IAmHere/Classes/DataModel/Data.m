@@ -51,16 +51,16 @@
     
     if(timeInterval >= (60*60*24)){
         NSInteger days = floor(timeInterval/(60*60*24));
-        relativeTimeAsString = [NSString stringWithFormat:@"Last Submitted %ld Days ago", (long)days];
+        relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)days, days == 1 ? @"Day": @"Days"];
     }else if (timeInterval >= (60*60)) {
         NSInteger hours = floor(timeInterval/(60*60));
-        relativeTimeAsString = [NSString stringWithFormat:@"Last Submitted %ld Hours ago", (long)hours];
+        relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)hours, hours == 1 ? @"hour" : @"hours"];
     }else if(timeInterval >= 60){
         NSInteger minutes = floor(timeInterval/60);
-        relativeTimeAsString = [NSString stringWithFormat:@"Last Submitted %ld Minutes ago", (long)minutes];
+        relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)minutes, minutes == 1 ? @"minute" : @"minutes"];
     }else{
         NSInteger remainingSeconds = round(timeInterval%60);
-        relativeTimeAsString = [NSString stringWithFormat:@"Last Submitted %ld Seconds ago", (long)remainingSeconds];
+        relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)remainingSeconds, remainingSeconds == 1 ? @"second": @"seconds"];
     }
     return relativeTimeAsString;
 }

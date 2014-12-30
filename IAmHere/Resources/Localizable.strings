@@ -1,6 +1,4 @@
-// EnterEmailViewController
-"Email field cannot be left blank" = "Email field cannot be left blank";
-"Please enter a valid email address"    =   "Please enter a valid email address";
+
 "LocationDisabledErrorMsg" =  "Location Service is not enable, Please enable it from Settings.";
 "SubmitLocationErrorMsg" =  "Could not submit location data, Please try again later.";
 "SubmitLocationSuccessMsg" =  "Location data submitted successfully.";
