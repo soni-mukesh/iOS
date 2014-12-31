@@ -20,3 +20,5 @@
 #import "LocationManager.h"
 #import "Utility.h"
 #import "Data.h"
+
+#define APP_REQUIRE_HEADER_FIELDS_TO_BO_PRINTED 0

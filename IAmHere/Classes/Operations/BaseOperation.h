@@ -18,4 +18,6 @@ typedef void (^OperationErrorHandler)(NSError* error);
 
 -(void)processOperationOnCompletion:(void(^)(NSInteger))completionHandler errorHandler:(OperationErrorHandler)errorHandler;
 
+-(void) logRequestResponseAsCURLStatement;
+
 @end

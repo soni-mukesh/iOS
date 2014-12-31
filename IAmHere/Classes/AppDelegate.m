@@ -1,14 +1,14 @@
 #import "AppDelegate.h"
 #import "SubmitLocationOperation.h"
 
-static NSString* const kAcceptEncoding         =  @"Accept-Encoding";
+static NSString* const kAcceptEncoding         =  @"accept-encoding";
 static NSString* const kGzip                   =  @"gzip";
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    NSDictionary *headers = @{kContentType : kContentTypeJson, kAcceptEncoding : kGzip};
+    NSDictionary *headers = @{kContentType : kContentTypeText, kAcceptEncoding : kGzip};
     self.network = [[MKNetworkEngine alloc] initWithHostName:nil customHeaderFields:headers];
 
     if(![CLLocationManager locationServicesEnabled])

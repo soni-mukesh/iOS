@@ -16,7 +16,7 @@ static NSString* const kPassword        = @"milton34";
 - (void) processOperationOnCompletion:(void(^)(NSInteger))completionHandler errorHandler:(OperationErrorHandler)errorHandler {
     
     [self addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-        
+        DLog(@"Readonly response %@", completedOperation.readonlyResponse)
         if([completedOperation.url rangeOfString:kApplicationEndPointURL].length) {
             if (completedOperation.HTTPStatusCode == kHTTPStatus201) {
                 NSString *lastSubmittedDate = [completedOperation.readonlyResponse.allHeaderFields objectForKey:@"Date"];
@@ -39,6 +39,10 @@ static NSString* const kPassword        = @"milton34";
 
 -(void) operationFailedWithError:(NSError*) error {
     [[self delegate] webServiceRequestFailed:error forRequestClass:[self class]];
+}
+
+-(void) logRequestResponseAsCURLStatement{
+    DLog(@"%@ On %@", [self class], [self description]);
 }
 
 @end

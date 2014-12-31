@@ -724,14 +724,17 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
 {
   __block NSMutableString *displayString = [NSMutableString stringWithFormat:@"curl -X %@", self.request.HTTPMethod];
   
-  if([self.filesToBePosted count] == 0 && [self.dataToBePosted count] == 0) {
-    [[self.request allHTTPHeaderFields] enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop)
-     {
-       [displayString appendFormat:@" -H \'%@: %@\'", key, val];
-     }];
-  }
-  
-  [displayString appendFormat:@" \'%@\'",  self.url];
+    if (APP_REQUIRE_HEADER_FIELDS_TO_BO_PRINTED) {
+        if([self.filesToBePosted count] == 0 && [self.dataToBePosted count] == 0) {
+            [[self.request allHTTPHeaderFields] enumerateKeysAndObjectsUsingBlock:^(id key, id val, BOOL *stop)
+             {
+                 [displayString appendFormat:@" -H \'%@: %@\'", key, val];
+             }];
+        }
+    }
+    
+  [displayString appendFormat:@" -u %@:%@",  self.username, self.password];
+  [displayString appendFormat:@" \"%@\"",  self.url];
   
   if ([self.request.HTTPMethod isEqualToString:@"POST"] ||
       [self.request.HTTPMethod isEqualToString:@"PUT"] ||
@@ -744,7 +747,7 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
         [displayString appendFormat:@" %@ \'%@=%@\'", option, key, obj];
       }];
     } else {
-      [displayString appendFormat:@" -d \'%@\'", [self encodedPostDataString]];
+      [displayString appendFormat:@" -d \"%@\"", [self encodedPostDataString]];
     }
     
     
