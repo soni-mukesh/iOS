@@ -17,10 +17,6 @@ static NSString* const kGzip                   =  @"gzip";
     }
     [LocationManager startUpdating];
     [self setApplicationRunningInForeground:YES];
-
-    if (![Utility getValueFromPermanentStoreForKey:kLastSubmittedKey]) {
-        [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:[Utility getValueFromPermanentStoreForKey:kUsernameKey] withDelegate:self];
-    }
     
     return YES;
 }

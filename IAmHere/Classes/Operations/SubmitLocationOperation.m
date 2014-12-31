@@ -4,6 +4,11 @@
 
 +(void)submitLocation:(CLLocation*)myLocation forUser:(NSString*)user withDelegate:(id<OperationDelegate>)inDelegate{
     
+    if(!myLocation || [user isEqualToString:@""]) {
+        [Utility showAlertWithMessage:NSLocalizedString(@"Location or Username unavailable", nil)  withDelegate:nil];
+        return;
+    }
+    
     SubmitLocationOperation*   submitLocationOperation = [[SubmitLocationOperation alloc] initOperationForUrl:kApplicationEndPointURL withParams:nil havingHTTPMethod:kPOST checkTimeout:NO];
     
     NSString *data = [NSString stringWithFormat:@"data=%@ is now at %f/%f", user, myLocation.coordinate.latitude, myLocation.coordinate.longitude];

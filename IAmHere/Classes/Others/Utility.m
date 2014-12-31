@@ -25,8 +25,8 @@
 }
 
 +(NSString*) getValueFromPermanentStoreForKey:(NSString*) key{
-    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:key];
-    return username;
+    NSString *value = [[NSUserDefaults standardUserDefaults] valueForKey:key];
+    return value;
 }
 
 +(void) saveToPermanentStoreValue:(NSString*) value forKey:(NSString*) key{

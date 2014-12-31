@@ -7,6 +7,7 @@
 @property(nonatomic, weak) IBOutlet UILabel *lblLocation;
 @property(nonatomic, weak) IBOutlet UILabel *lblLastUpdatedInfo;
 @property(nonatomic, weak) IBOutlet UIButton *btnSubmit;
+@property(nonatomic, assign, getter=isSubmitOperationOnTheWay)BOOL submitOperationOnTheWay;
 
 -(IBAction)submitUserLocationButtonAction:(id)sender;
 
@@ -42,6 +43,13 @@
 - (void)didUpdateLocation:(NSNotification *)notification {
     NSString *locationStr = [NSString stringWithFormat:@"%f, %f", [LocationManager sharedInstance].location.coordinate.latitude, [LocationManager sharedInstance].location.coordinate.longitude];
     [self.lblLocation setText:locationStr];
+    
+    //First Time app launch Location submission
+    if (![Utility getValueFromPermanentStoreForKey:kLastSubmittedKey] && ![self isSubmitOperationOnTheWay]) {
+        DLog(@"Sending Location details to server once app launch for the first time.");
+        [SubmitLocationOperation submitLocation:[LocationManager sharedInstance].location forUser:self.txtUserName.text withDelegate:self];
+        [self setSubmitOperationOnTheWay:YES];
+    }
 }
 
 #pragma mark TextFieldDelegate
@@ -58,6 +66,7 @@
 #pragma mark WebServiceDelegate
 
 - (void) webServiceRequestSucceed:(NSInteger)inResponse forRequestClass:(Class)inRequestClass{
+    [self setSubmitOperationOnTheWay:NO];
     if (inRequestClass == [SubmitLocationOperation class]) {
         switch (inResponse) {
             case OperationStatusSuccess:
@@ -76,6 +85,7 @@
     }
 }
 - (void) webServiceRequestFailed:(NSError*)inError forRequestClass:(Class)inRequestClass{
+    [self setSubmitOperationOnTheWay:NO];
     if (inRequestClass == [SubmitLocationOperation class]) {
         [Utility showAlertWithMessage:NSLocalizedString(@"SubmitLocationErrorMsg", nil) withDelegate:nil];
     }

@@ -4,3 +4,4 @@
 "SubmitLocationSuccessMsg" =  "Location data submitted successfully.";
 "UnknownOperation" =  "Invalid network opeartion.";
 "Error title" = "IAMHere Error";
+"Location or Username unavailable" = "Location or Username unavailable, Please get the location and type any name and try again.";

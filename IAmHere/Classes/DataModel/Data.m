@@ -26,8 +26,6 @@
 -(void)initiateData{
     if ([Utility getValueFromPermanentStoreForKey:kLastSubmittedKey]) {
         self.lastSubmittedDate = [self dateFromString:[Utility getValueFromPermanentStoreForKey:kLastSubmittedKey]];
-    }else{
-        self.lastSubmittedDate = [NSDate new];
     }
 }
 
@@ -58,9 +56,11 @@
     }else if(timeInterval >= 60){
         NSInteger minutes = floor(timeInterval/60);
         relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)minutes, minutes == 1 ? @"minute" : @"minutes"];
-    }else{
+    }else if(timeInterval){
         NSInteger remainingSeconds = round(timeInterval%60);
         relativeTimeAsString = [NSString stringWithFormat:@"Last submitted %ld %@ ago", (long)remainingSeconds, remainingSeconds == 1 ? @"second": @"seconds"];
+    }else{
+        relativeTimeAsString = @"";
     }
     return relativeTimeAsString;
 }
